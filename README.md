@@ -59,4 +59,4 @@ ConfiguringInitializer is free to use or modify in any way you see fit.  If you 
 This package was inspired by an article by John Sundell at https://www.swiftbysundell.com/articles/encapsulating-configuration-code-in-swift/
 
 ## Contact:
-twitter: @jaywardell
+twitter: [@jaywardell](https://twitter.com/jaywardell)
