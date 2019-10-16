@@ -1,15 +1,44 @@
 import XCTest
 @testable import ConfiguringInitializer
 
-final class ConfiguringInitializerTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ConfiguringInitializer().text, "Hello, World!")
-    }
+final class Dummy {
+        
+    var someValue : String?
+}
+extension Dummy : ConfiguringInitializer {}
 
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+// MARK:-
+
+final class ConfiguringInitializerTests: XCTestCase {
+
+
+    func testDummyClass() {
+        
+        let testValue = "Hello"
+        let dummyToo = Dummy {
+            $0.someValue = testValue
+        }
+
+        XCTAssertEqual(dummyToo.someValue, testValue)
+    }
+    
+    
+    #if (os(macOS) || os(iOS) || os(watchOS) || os(tvOS))
+
+    func testDateFormatterCreation() {
+        
+        let oldway = DateFormatter()
+        oldway.dateStyle = .short
+        oldway.timeStyle = .long
+        
+        let newway = DateFormatter() {
+            $0.dateStyle = .short
+            $0.timeStyle = .long
+        }
+        
+        XCTAssertEqual(oldway.string(from: Date()), newway.string(from: Date()))
+    }
+    
+    #endif
+
 }
