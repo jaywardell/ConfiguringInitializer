@@ -4,14 +4,14 @@
 //
 //  Created by Joseph A. Wardell on 10/15/19.
 //
-protocol ConfiguringInitializer : class {
+public protocol ConfiguringInitializer : class {
     init()
 }
 
 // now give that protocol an extra init method
 // that takes a closure to configure
 // the object being initted
-extension ConfiguringInitializer {
+public extension ConfiguringInitializer {
     
     init(_ configuration:(Self)->()) {
         self.init()
