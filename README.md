@@ -40,7 +40,7 @@ Write configuration code for most objects in Swift in a closure on the initializ
 
 Import ConfiguringInitializer into your project.
 
-ConfiguringInitializer is available as a Swift Package at https://github.com/jaywardell/TimeTravel.  
+ConfiguringInitializer is available as a Swift Package at https://github.com/jaywardell/ConfiguringInitializer.  
 You can downlaod it or import it in XCode using `File->Swift Packages->Add Package Dependency…`
 
 ### Step 2:
