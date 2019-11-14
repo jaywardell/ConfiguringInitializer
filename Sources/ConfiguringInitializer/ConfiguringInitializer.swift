@@ -4,7 +4,19 @@
 //
 //  Created by Joseph A. Wardell on 10/15/19.
 //
-public protocol ConfiguringInitializer : class {
+
+public protocol Configuring : class {}
+extension Configuring {
+    
+    @discardableResult func configure(_ configuration:(Self)->()) -> Self {
+        configuration(self)
+        return self
+    }
+    
+}
+
+
+public protocol ConfiguringInitializer : Configuring {
     init()
 }
 
@@ -15,7 +27,7 @@ public extension ConfiguringInitializer {
     
     init(_ configuration:(Self)->()) {
         self.init()
-        configuration(self)
+        configure(configuration)
     }
 }
 

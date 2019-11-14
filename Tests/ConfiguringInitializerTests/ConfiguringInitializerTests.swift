@@ -20,6 +20,12 @@ final class ConfiguringInitializerTests: XCTestCase {
         }
 
         XCTAssertEqual(dummyToo.someValue, testValue)
+        
+        let dummythree = Dummy().configure {
+            $0.someValue = testValue
+        }
+
+        XCTAssertEqual(dummythree.someValue, testValue)
     }
     
     
@@ -39,6 +45,20 @@ final class ConfiguringInitializerTests: XCTestCase {
         XCTAssertEqual(oldway.string(from: Date()), newway.string(from: Date()))
     }
     
+    func testDateFormatterCreation2() {
+        
+        let oldway = DateFormatter()
+        oldway.dateStyle = .short
+        oldway.timeStyle = .long
+        
+        let newway : DateFormatter = DateFormatter().configure {
+            $0.dateStyle = .short
+            $0.timeStyle = .long
+        }
+        
+        XCTAssertEqual(oldway.string(from: Date()), newway.string(from: Date()))
+    }
+
     #endif
 
 }
