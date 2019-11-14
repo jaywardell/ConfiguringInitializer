@@ -8,7 +8,8 @@
 public protocol Configuring : class {}
 extension Configuring {
     
-    @discardableResult func configure(_ configuration:(Self)->()) -> Self {
+    @discardableResult
+    public func configure(_ configuration:(Self)->()) -> Self {
         configuration(self)
         return self
     }
